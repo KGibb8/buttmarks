@@ -1,0 +1,30 @@
+{
+  "name": "ssb-bookmarks",
+  "version": "1.0.0",
+  "description": "bookmark your favourite or to-read scuttlebutt posts",
+  "main": "index.js",
+  "dependencies": {
+    "is-my-json-valid": "^2.17.2",
+    "scuttle-inject": "^1.0.0",
+    "ssb-query": "^2.1.0",
+    "ssb-ref": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "tape test/**/*.js | tap-diff"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssbc/ssb-bookmarks.git"
+  },
+  "keywords": [
+    "bookmark",
+    "ssb"
+  ],
+  "author": "kyphae",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssbc/ssb-bookmarks/issues"
+  },
+  "homepage": "https://github.com/ssbc/ssb-bookmarks#readme"
+}
