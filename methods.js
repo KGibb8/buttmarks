@@ -1,16 +1,16 @@
-const { isBookmark } = require('./schemas/isBookmark')
-
 module.exports = {
   bookmarks: {
     async: {
+      publish: require('./bookmarks/async/publish')
       get: require('./bookmarks/async/get')
     },
     pull: {
-      all: require('./booksmarks/pull/all'),
-      byRoot: require('./bookmarks/pull/byRoot')
+      all: require('./bookmarks/pull/all'),
+      byRoot: require('./bookmarks/pull/byRoot'),
+      mine: require('./bookmarks/pull/mine')
     },
     sync: {
-      isBookmark: () => isBookmark
+      isBookmark: () => require('./schemas/isBookmark')
     }
   }
 }
