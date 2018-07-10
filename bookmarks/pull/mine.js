@@ -1,15 +1,17 @@
 const pull = require('pull-stream')
+const next = require('pull-next-query')
 const sort = require('pull-sort')
+
 const isBookmark = require('../sync/isBookmark')
 
 module.exports = function (server) {
-  return function all (opts) {
-    var id = server.id
+  return function mine (opts) {
+    const id = server.id
 
     return pull(
       next(server.query.read, optsWithQuery(), ['value', 'timestamp']),
-      sort(compare),
-      pull.filter(isBookmark)
+      pull.filter(isBookmark),
+      sort(orderByTimestamp)
     )
 
     function optsWithQuery () {
@@ -19,7 +21,7 @@ module.exports = function (server) {
           $filter: {
             value: {
               author: id,
-              timestamp: { $gt: 0 }
+              timestamp: { $gt: 0 },
               content: { type: 'bookmark' }
             }
           }
@@ -27,7 +29,7 @@ module.exports = function (server) {
       }, opts)
     }
 
-    function compare () {
+    function orderByTimestamp () {
       return (a, b) => {
         return opts.reverse
           ? a.value.timestamp > b.value.timestamp ? -1 : +1

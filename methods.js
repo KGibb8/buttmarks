@@ -1,7 +1,7 @@
 module.exports = {
   bookmarks: {
     async: {
-      publish: require('./bookmarks/async/publish')
+      publish: require('./bookmarks/async/publish'),
       get: require('./bookmarks/async/get')
     },
     pull: {
@@ -10,7 +10,7 @@ module.exports = {
       mine: require('./bookmarks/pull/mine')
     },
     sync: {
-      isBookmark: () => require('./schemas/isBookmark')
+      isBookmark: () => require('./bookmarks/sync/isBookmark')
     }
   }
 }

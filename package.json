@@ -1,21 +1,30 @@
 {
-  "name": "ssb-bookmarks",
+  "name": "scuttle-bookmark",
   "version": "1.0.0",
   "description": "bookmark your favourite or to-read scuttlebutt posts",
   "main": "index.js",
   "dependencies": {
     "is-my-json-valid": "^2.17.2",
+    "pull-next-query": "^1.0.0",
+    "pull-sort": "^1.0.1",
+    "pull-stream": "^3.6.8",
     "scuttle-inject": "^1.0.0",
+    "ssb-msg-content": "^1.0.1",
     "ssb-query": "^2.1.0",
     "ssb-ref": "^2.11.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "scuttle-testbot": "^1.1.6",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.9.1",
+    "tape-plus": "^1.0.0"
+  },
   "scripts": {
     "test": "tape test/**/*.js | tap-diff"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ssbc/ssb-bookmarks.git"
+    "url": "git+https://github.com/ssbc/scuttle-bookmark.git"
   },
   "keywords": [
     "bookmark",
@@ -24,7 +33,7 @@
   "author": "kyphae",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ssbc/ssb-bookmarks/issues"
+    "url": "https://github.com/ssbc/scuttle-bookmark/issues"
   },
-  "homepage": "https://github.com/ssbc/ssb-bookmarks#readme"
+  "homepage": "https://github.com/ssbc/scuttle-bookmark#readme"
 }

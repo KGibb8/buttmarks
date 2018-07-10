@@ -1,9 +1,9 @@
-const definitions = require('../lib/definitions')
+const definitions = require('../lib/schema/definitions')
 
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
   type: 'object',
-  required: ['type', 'root', 'description', 'directory'],
+  required: ['type', 'root', 'description'],
   properties: {
     type: {
       type: 'string',

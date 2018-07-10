@@ -1,6 +1,9 @@
+const pull = require('pull-stream')
+const next = require('pull-next-query')
+const sort = require('pull-sort')
+
 const { isMsgId } = require('ssb-ref')
 const isBookmark = require('../sync/isBookmark')
-const sort = require('pull-sort')
 
 module.exports = function (server) {
   return function byRoot (opts) {
@@ -11,8 +14,8 @@ module.exports = function (server) {
 
     return pull(
       next(server.query.read, optsWithQuery(), ['value', 'timestamp']),
-      pull.filter(isBookmark)
-      sort(compare),
+      pull.filter(isBookmark),
+      sort(orderByTimestamp)
     )
 
     function optsWithQuery () {
@@ -32,7 +35,7 @@ module.exports = function (server) {
       }, opts)
     }
 
-    function compare () {
+    function orderByTimestamp () {
       return (a, b) => {
         return opts.reverse
           ? a.value.timestamp > b.value.timestamp ? -1 : +1
