@@ -1,6 +1,6 @@
 const { describe } = require('tape-plus')
 const pull = require('pull-stream')
-const Source = require('../../bookmarks/pull/mine')
+const Source = require('../../../bookmarks/pull/mine')
 
 const Server = require('scuttle-testbot')
 

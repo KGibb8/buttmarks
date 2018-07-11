@@ -11,12 +11,12 @@ module.exports = {
     },
     root: { $ref: '#/definitions/messageId' },
     description: { type: 'string' },
-    directory: {
-      oneof: [
-        { type: 'null' },
-        { $ref: '#/definitions/messageId' }
-      ]
-    }
+    // directory: {
+    //   oneof: [
+    //     { type: 'null' },
+    //     { $ref: '#/definitions/messageId' }
+    //   ]
+    // }
   },
   definitions: definitions
 }
