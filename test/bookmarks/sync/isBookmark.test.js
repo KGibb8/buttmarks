@@ -30,11 +30,11 @@ describe('bookmarks.sync.isBookmark', context => {
     assert.deepEqual(errors, ['data.root: referenced schema does not match'])
   })
 
-  context('invalid: description', assert => {
-    bookmark.description = { description: 'describe mee' }
+  context('invalid: name', assert => {
+    bookmark.name = { name: 'describe mee' }
     assert.notOk(isBookmark(bookmark))
 
     var errors = bookmark.errors.map(e => `${e.field}: ${e.message}`)
-    assert.deepEqual(errors, ['data.description: is the wrong type'])
+    assert.deepEqual(errors, ['data.name: is the wrong type'])
   })
 })

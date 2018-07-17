@@ -24,9 +24,9 @@ describe('bookmarks.pull.mine', context => {
   context("collects all messages by server's ID", (assert, next) => {
     populateDB((err, post) => {
       const values = [
-        { server: server, content: { type: 'bookmark', root: post.key, description: '1' } },
-        { server: grace, content: { type: 'bookmark', root: post.key, description: '2' } },
-        { server: server, content: { type: 'bookmark', root: post.key, description: '3' } }
+        { server: server, content: { type: 'bookmark', root: post.key, name: '1' } },
+        { server: grace, content: { type: 'bookmark', root: post.key, name: '2' } },
+        { server: server, content: { type: 'bookmark', root: post.key, name: '3' } }
       ]
 
       pull(

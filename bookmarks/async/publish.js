@@ -1,12 +1,16 @@
 const isBookmark = require('../sync/isBookmark')
 
 module.exports = function (server) {
-  return function publish (params, callback) {
-    const bookmark = Object.assign({}, { type: 'type' }, params)
-    if (!isBookmark(bookmark)) {
-      var errors = bookmark.errors.map(e => `${e.field}: ${e.message}`)
-      return callback(new Error(`invalid bookmark: ${errors}`))
+  return function publish ({ name, root }, callback) {
+    const bookmark = {
+      type: 'bookmark',
+      root,
+      name
     }
-    server.publish(bookmark, callback)
+    if (isBookmark(bookmark)) server.publish(bookmark, callback)
+    else {
+      var errors = bookmark.errors.map(e => `${e.field}: ${e.message}`)
+      callback(new Error(`${errors.join(', ')}`))
+    }
   }
 }
