@@ -1,4 +1,4 @@
-const definitions = require('../lib/schema/definitions')
+const definitions = require('ssb-schema-definitions')
 
 module.exports = {
   $schema: 'http://json-schema.org/schema#',
@@ -7,7 +7,7 @@ module.exports = {
   properties: {
     type: {
       type: 'string',
-      pattern: '^bookmark$'
+      pattern: '^bookmarks/bookmark$'
     },
     root: { $ref: '#/definitions/messageId' },
     name: { type: 'string' },

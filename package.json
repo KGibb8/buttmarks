@@ -8,10 +8,11 @@
     "pull-next-query": "^1.0.0",
     "pull-sort": "^1.0.1",
     "pull-stream": "^3.6.8",
-    "scuttle-inject": "^1.0.0",
+    "scuttle-inject": "^1.0.3",
     "ssb-msg-content": "^1.0.1",
     "ssb-query": "^2.1.0",
-    "ssb-ref": "^2.11.1"
+    "ssb-ref": "^2.11.1",
+    "ssb-schema-definitions": "^1.0.8"
   },
   "devDependencies": {
     "scuttle-testbot": "^1.1.6",
